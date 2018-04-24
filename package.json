@@ -1,10 +1,9 @@
 {
-  "name": "js-popmotion",
-  "version": "1.0.0",
-  "description": "",
+  "name": "animations",
+  "version": "0.0.0",
+  "description": "I will upload various animations here",
   "private": true,
   "scripts": {
-    "babel": "babel --presets es2015 js/main.js -o build/main.bundle.js",
     "build": "webpack",
     "start": "webpack --config webpack.config.js"
   },
@@ -13,14 +12,15 @@
       "env",
       "react",
       "stage-2"
+    ],
+    "plugins": [
+      [ "transform-class-properties" ],
+      [ "transform-react-jsx", { "pragma": "h" } ]
     ]
   },
   "author": "Vytautas Sugintas",
   "license": "ISC",
   "dependencies": {
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-react-jsx": "^6.24.1",
-    "lodash": "^4.17.5",
     "popmotion": "^8.1.22",
     "preact": "^8.2.7"
   },
@@ -30,6 +30,8 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
     "webpack": "^4.6.0",
     "webpack-cli": "^2.0.15"
   }
