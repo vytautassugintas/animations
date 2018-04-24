@@ -1,34 +1,22 @@
-import _ from 'lodash';
 import tween from 'popmotion/animations/tween';
+import { h, render, Component } from 'preact';
 
-function component() {
-  const element = document.createElement('div');
-  const a = document.createElement('div');
-  const div = document.createElement('div');
-  a.setAttribute('id', 'a');
-  a.innerHTML = 'link';
-  div.setAttribute('class', 'counter');
-  a.innerHTML = div;
+class App extends Component {
 
-  const counter = document.querySelector('#a .counter');
-
-  const updateCounter = (v) => a.innerHTML = v;
-
-  tween().start(updateCounter);
-
-  const button = document.createElement('button');
-
-  button.addEventListener("click", () => {
-    tween().start(updateCounter)
-  })
-
-  button.innerHTML = "animate";
-
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  element.appendChild(a);
-  element.appendChild(button);
-
-  return element;
+  animate = e => {
+    console.log("Hi");
+  }
+  
+  render(){
+    return (
+      <div id="foo">
+        <span>Hello, world!</span>
+        <button onClick={this.animate}>Click Me</button>
+      </div>
+    );
+  }
 }
 
-document.body.appendChild(component());
+render((
+	<App/>
+), document.body);
